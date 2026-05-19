@@ -7,7 +7,7 @@ RUN npm ci
 
 COPY . .
 
-# Expose port 80 inside the container
-EXPOSE 80
+# Expose port 8080 inside the container
+EXPOSE 8080
 
 CMD ["npm", "start"]
