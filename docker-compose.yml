@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  db:
+    image: mongo:6.0
+    restart: always
+    # We do NOT expose ports to the host EC2 instance for security
+    volumes:
+      - mongo_data:/data/db
+
+  web:
+    build: .  # Uses existing Dockerfile
+    restart: always
+    ports:
+      - "8080:8080" # Maps EC2 Port 8080 -> Container Port 8080
+    environment:
+      MONGO_URI: mongodb://db:27017/${MONGO_DB}
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+volumes:
+  mongo_data:
