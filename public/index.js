@@ -1,5 +1,6 @@
 function log(message) {
-    alert(message);
+    console.log('Adding user to MongoDB:');
+    addUser();
 }
 
 function addUser() {
@@ -11,6 +12,6 @@ function addUser() {
         body: JSON.stringify({ name: 'John Doe', email: 'john.doe@example.com' })
     })
     .then(response => response.json())
-    .then(data => log(`User added with ID: ${data.insertedId}`))
-    .catch(error => log(`Error adding user: ${error.message}`));
+    .then(data => console.log(`User added with ID: ${data.insertedId}`))
+    .catch(error => console.log(`Error adding user: ${error.message}`));
 }
