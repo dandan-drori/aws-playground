@@ -9,8 +9,13 @@
 <body>
     <h1>Dandan's AWS Playground</h1>
     <p>Welcome to my AWS Playground!</p>
-    <button onclick="log('Hello, AWS!')">Click me</button>
-    <p>Thinking...</p>
+    <form id="add-user-form">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <button type="submit">Add User</button>
+    </form>
+    <button onclick="fetchUsers()">Show Users</button>
+    <ul id="users-list"></ul>
     <script src="index.js"></script>
 </body>
 </html>
