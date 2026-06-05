@@ -1,5 +1,5 @@
 async function addUser(name, email) {
-    const response = await fetch('/users', {
+    const response = await fetch('/api/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email })
@@ -14,7 +14,7 @@ async function addUser(name, email) {
 }
 
 async function fetchUsers() {
-    const response = await fetch('/users');
+    const response = await fetch('/api/users');
     const users = await response.json();
     const usersList = document.getElementById('users-list');
     usersList.innerHTML = '';
